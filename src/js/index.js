@@ -1,0 +1,34 @@
+const botoesCarrossel = document.querySelectorAll(".botao");
+const imagens = document.querySelectorAll(".imagem");
+const informacoes = document.querySelectorAll(".informacoes");
+
+botoesCarrossel.forEach((botao, indice) => {
+    botao.addEventListener("click", () => {
+        desativarBotaoSelecionar();
+
+        botao.classList.add("selecionado");
+
+        const imagemAtiva = esconderFuncaoAtiva();
+
+        imagemAtiva.classList.remove("ativa");
+
+    imagens[indice].classList.add("ativa");
+
+    const informacoesAtiva = document.querySelector(".informacoes.ativa");
+
+    informacoesAtiva.classList.remove("ativa");
+
+    informacoes[indice].classList.add("ativa");
+
+    });
+});
+
+function esconderFuncaoAtiva() {
+    return document.querySelector(".ativa");
+}
+
+function desativarBotaoSelecionar() {
+    const botaoSelecionado = document.querySelector(".selecionado");
+
+    botaoSelecionado.classList.remove("selecionado");
+}
